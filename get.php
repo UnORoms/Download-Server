@@ -73,7 +73,7 @@ print "<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>
 	<head>
-		<title>Index of /" .$vpath. "</title>
+		<title>Details of /" .$full_path. "</title>
 		<style type='text/css'>
 		a, a:active {text-decoration: none; color: blue;}
 		a:visited {color: #48468F;}
@@ -91,7 +91,7 @@ print "<?xml version='1.0' encoding='utf-8'?>
 		textarea {width:640px; height:400px}
 		a.download{font-size: 20px; margin-bottom: 20px; display: block}
 		div.md5{margin-bottom: 10px}
-		div.md5 span{color: grey}
+		div.md5 span{color: black}
 		</style>
 	</head>
 	<body>
@@ -104,7 +104,7 @@ print "<?xml version='1.0' encoding='utf-8'?>
 
   ga('create', 'UA-26888993-2', 'shantur.com');
   ga('require', 'linkid', 'linkid.js');
-  ga('send', 'pageview');
+  ga('send', 'pageview', '/get.php?p=" . $full_path . "');
 
 </script>";
 ?>
@@ -115,9 +115,8 @@ print "<?xml version='1.0' encoding='utf-8'?>
  */
 ?>
 
-<h2>File Name: <?php echo $file;?></h2>
-<a class="download" href="/<?php echo $full_path;?>"?>download</a>
-
+<h2>File : <?php echo DIRECTORY_SEPARATOR . $full_path;?></h2>
+<a class="download" href="/<?php echo $full_path;?>" onClick=\"ga('send', 'pageview', '<?php echo DIRECTORY_SEPARATOR . $full_path; ?>');\"?>Download</a>
 <?php if($md5):?>
 <div class="md5">
 	<span>MD5:</span> <?php echo $md5?>
@@ -125,6 +124,9 @@ print "<?xml version='1.0' encoding='utf-8'?>
 <?php endif?>
 
 <?php if($changeLog):?>
+<div class="md5">
+	<span>Changelog</span>
+</div>
 <textarea><?php echo $changeLog?></textarea>
 <?php endif?>
 
