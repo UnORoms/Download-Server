@@ -155,7 +155,8 @@ function get_file_type($file) {
 function ignoreFile($f){
 	global $hidden_formats, $filelist;
 	list($name, $ext) = explode(".", $f["name"]);
-	if(!in_array($ext, $hidden_formats)){return false;}
+	$parts = explode(".", $f["name"]);
+	if(!in_array(end($parts), $hidden_formats)){return false;}
 	$files = array_filter($filelist, function($v) use ($name){
 		global $hidden_formats;
 		list($n, $e) = explode(".", $v["name"]);
