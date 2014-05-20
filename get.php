@@ -130,6 +130,8 @@ print "<?xml version='1.0' encoding='utf-8'?>
 <textarea><?php echo $changeLog?></textarea>
 <?php endif?>
 
+<a href="<?php echo DIRECTORY_SEPARATOR . $path?>" style="display:block;">back</a>
+
 <?php 
 /**
  * Footer
