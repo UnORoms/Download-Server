@@ -1,5 +1,8 @@
 <?php
 $full_path = urldecode($_GET["p"]);
+
+if ($full_path == '..' || strpos($full_path, '../') === 0 || strpos($full_path, '/../') !== false) die("don't be smart you are not allowed what you are trying to do.");
+
 // echo getcwd() . DIRECTORY_SEPARATOR . $full_path;
 if(!is_file(getcwd() . DIRECTORY_SEPARATOR . $full_path)) die("file is not exists");
 
