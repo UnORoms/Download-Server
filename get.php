@@ -65,7 +65,7 @@ $changeLog = getChangeLog();
 
 
 
-<?
+<?php 
 /**
  * Header
  */
@@ -109,26 +109,26 @@ print "<?xml version='1.0' encoding='utf-8'?>
 </script>";
 ?>
 
-<?
+<?php 
 /**
  * Content
  */
 ?>
 
-<h2>File Name: <?=$file;?></h2>
-<a class="download" href="/<?=$full_path;?>"?>download</a>
+<h2>File Name: <?php echo $file;?></h2>
+<a class="download" href="/<?php echo $full_path;?>"?>download</a>
 
-<?if($md5):?>
+<?php if($md5):?>
 <div class="md5">
-	<span>MD5:</span> <?=$md5?>
+	<span>MD5:</span> <?php echo $md5?>
 </div>
-<?endif?>
+<?php endif?>
 
-<?if($changeLog):?>
-<textarea><?=$changeLog?></textarea>
-<?endif?>
+<?php if($changeLog):?>
+<textarea><?php echo $changeLog?></textarea>
+<?php endif?>
 
-<?
+<?php 
 /**
  * Footer
  */
